@@ -1,6 +1,7 @@
 package edu.canisius.csc213.util;
 
-import java.time.LocalDateTime; 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -35,7 +36,14 @@ public class SysDebugger {
         } catch (IOException e) {
             System.err.println("[SysDebugger] Could not retrieve process list: " + e.getMessage());
         }
-    }
+        public static void logCurrentDateTime() {
+		    
+            LocalDateTime now = LocalDateTime.now();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+
+            System.out.println("");
+    } }
 
 }
 
