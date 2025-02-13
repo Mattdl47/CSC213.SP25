@@ -1,8 +1,7 @@
 package edu.canisius.csc213.util;
 
-import java.time.LocalDateTime;
+import java.time.LocalDateTime; 
 import java.time.format.DateTimeFormatter;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -12,7 +11,16 @@ import java.io.IOException;
  * system diagnostics (e.g., process list) after errors.
  */
 public class SysDebugger {
+    public static void logCurrentDateTime() {
+		// Your code goes here!
+	LocalDateTime currentDateTime = LocalDateTime.now();
 
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
+
+	System.out.println("=== Current Date & Time ===");
+        System.out.println(currentDateTime.format(formatter));
+        System.out.println("===========================");
+    } 
     /**
      * Logs the currently running processes (Linux/macOS example).
      * On Windows, adjust to "tasklist" or similar.
@@ -36,14 +44,8 @@ public class SysDebugger {
         } catch (IOException e) {
             System.err.println("[SysDebugger] Could not retrieve process list: " + e.getMessage());
         }
-        public static void logCurrentDateTime() {
-		    
-            LocalDateTime now = LocalDateTime.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = now.format(formatter);
-
-            System.out.println("");
-    } }
+    }
 
 }
 
+ 
